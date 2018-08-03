@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.tyhmeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- BootstrapのCSS読み込み -->
+<link th:href="@{/bootstrap-3.3.7-dist/css/bootstrap.min.css}"
+	rel="stylesheet">
+<!-- 自作CSS読み込み -->
+<link th:href="@{/css/itemList.css}" rel="stylesheet">
+<!-- jQuery読み込み -->
+<script
+	th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js}"></script>
+<!-- BootstrapのJS読み込み -->
+<script th:src="@{/bootstrap-3.3.7-dist/js/bootstrap.min.js}"></script>
+<title>商品一覧</title>
+</head>
+<body>
+	<h1>Items</h1>
+
+	<!--　商品一覧表示 -->
+	<div class="table-size">
+		<table class="table table-hover table-condensed">
+			<thead>
+				<tr class="info">
+					<th>name</th>
+					<th>price</th>
+					<th>category</th>
+					<th>brand</th>
+					<th>condition</th>
+				</tr>
+			</thead>
+			<tbody id="tbody">
+			</tbody>
+		</table>
+
+		<!--　ページ表示 -->
+		<nav>
+			<ul class="pager">
+				<li class="previous"><a href="#" id="backPage">back</a></li>
+				<li class="next"><a href="#" id="nextPage">next</a></li>
+			</ul>
+		</nav>
+	</div>
+
+	<script type="text/javascript" th:inline="javascript">
+	var pageNumber = {
+			key : 1
+	};
+	
+	$(function(){
+
+		if(pageNumber.key == 1){
+		document.getElementById("backPage").style.display="none";
+		}
+		
+	});
+		
+		$(function() {
+
+			$.ajax({
+				type : "POST",
+				url : "/mercari/itemList/pageChange",
+				data : pageNumber,
+				datatype : "json",
+				success : function(data) {
+					success(data);
+				}
+			});
+		});
+
+		$("#nextPage").click(function() {
+			pageNumber.key++;
+
+			$.ajax({
+				type : "POST",
+				url : "/mercari/itemList/pageChange",
+				data : pageNumber,
+				datatype : "json",
+				success : function(data) {
+					success(data);
+				}
+			});
+			if(pageNumber.key == 2){
+				document.getElementById("backPage").style.display="block";
+			}
+		});
+
+		$("#backPage").click(function() {
+			pageNumber.key--;
+
+			$.ajax({
+				type : "POST",
+				url : "/mercari/itemList/pageChange",
+				data : pageNumber,
+				datatype : "json",
+				success : function(data) {
+					success(data);
+				}
+			});
+			if(pageNumber.key == 1){
+				document.getElementById("backPage").style.display="none";
+			}
+		});
+		
+
+		function success(data) {
+			$("#tbody").text("");
+			for (var i = 0; i < 30; i++) {
+				$("#tbody").append("<tr><td id='detail'><a href='" + [[${#httpServletRequest.contextPath}]] + "/itemDetail/index/?itemId="
+										+ data[i].itemId + "'>" + data[i].itemName + "</a></td>" 
+										+ "<td>" + data[i].price + "</td>" 
+										+ "<td>" + data[i].parentName 
+										+ "/" 
+										+ data[i].childName 
+										+ "/" 
+										+ data[i].categoryName + "</td>" 
+										+ "<td>" + data[i].brand + "</td>" 
+										+ "<td>" + data[i].condition + "</td></tr>");
+			}
+		}
+		/* [[${#httpServletRequest.contextPath}]] */
+		/* http://localhost:8080/mercari */
+	</script>
+</body>
+</html>

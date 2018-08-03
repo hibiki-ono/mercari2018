@@ -1,0 +1,12 @@
+spring: 
+  thymeleaf:
+    cache: false
+    mode: HTML
+  datasource: 
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/mercari
+    password: postgres
+    username: postgres
+server: 
+  servlet:
+    context-path: /mercari      

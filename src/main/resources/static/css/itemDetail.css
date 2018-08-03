@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.table-size {
+	margin: 50px 50px 50px 50px;
+	width: 90%;
+	height: 100%;
+}
+
+h1 {
+	margin-left: 20px;
+}

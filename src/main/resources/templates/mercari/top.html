@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.tyhmeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- BootstrapのCSS読み込み -->
+<link th:href="@{/bootstrap-3.3.7-dist/css/bootstrap.min.css}"
+	rel="stylesheet">
+<!-- 自作CSS読み込み -->
+<link th:href="@{/css/top.css}" rel="stylesheet">
+<!-- jQuery読み込み -->
+<script
+	th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js}"></script>
+<!-- BootstrapのJS読み込み -->
+<script th:src="@{/bootstrap-3.3.7-dist/js/bootstrap.min.js}"></script>
+<title>トップ画面</title>
+</head>
+<body>
+	<h1>メルカリ研修</h1>
+
+	<nav id="navigation">
+		<ul class="clearfix">
+			<li><a href="#">menu4</a>
+				<ul>
+					<li><a href="#">menu4-1</a></li>
+					<li><a href="#">menu4-2</a></li>
+					<li><a href="#">menu4-3</a></li>
+					<li><a href="#">menu4-4</a></li>
+					<li><a href="#">menu4-5</a></li>
+					<li><a href="#">menu4-6</a></li>
+				</ul></li>
+		</ul>
+	</nav>
+</body>
+</html>

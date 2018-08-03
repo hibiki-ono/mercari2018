@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+nav#navigation {
+    width:403px;
+    height:30px;
+}
+
+nav#navigation ul {
+    width:403px;
+}
+
+nav#navigation ul li {
+    border-left:1px solid rgba(0, 0, 0, 0);
+    border-bottom:1px solid rgba(0, 0, 0, 0);
+    width:200px;
+    height:30px;
+    float:left;
+    list-style:none;
+    position:relative;
+}
+
+nav#navigation ul li a {
+    display:block;
+    height:30px;
+    background-color:rgba(0, 0, 0, 0.8);
+    text-align:center;
+    line-height:30px;
+    color:rgba(255, 255, 255, 0.7);
+    text-decoration:none;
+    -webkit-transition:background-color 0.1s ease-in, color 0.1s ease-in;
+    -moz-transition:background-color 0.1s ease-in, color 0.1s ease-in;
+    -ms-transition:background-color 0.1s ease-in, color 0.1s ease-in;
+    -o-transition:background-color 0.1s ease-in, color 0.1s ease-in;
+    transition:background-color 0.1s ease-in, color 0.1s ease-in;
+}
+
+nav#navigation ul li a:hover {
+    background-color:rgba(0, 0, 0, 1);
+    color:rgba(255, 255, 255, 1);
+}
+
+nav#navigation ul li ul {
+    width:100px;
+    position:absolute;
+    top:31px;
+    left:0;
+    visibility:hidden;
+    opacity:0;
+    -webkit-transition:visibility 0.1s ease-in, opacity 0.1s ease-in;
+    -moz-transition:visibility 0.1s ease-in, opacity 0.1s ease-in;
+    -ms-transition:visibility 0.1s ease-in, opacity 0.1s ease-in;
+    -o-transition:visibility 0.1s ease-in, opacity 0.1s ease-in;
+    transition:visibility 0.1s ease-in, opacity 0.1s ease-in;
+    z-index:9999;
+}
+
+nav#navigation ul li:hover ul {
+    visibility:visible;
+    opacity:1;
+}
+
+nav#navigation ul li ul li {
+    margin:-5px 0 0;
+    border-left:none;
+    float:none;
+    -webkit-transition:margin 0.1s ease-in;
+    -moz-transition:margin 0.1s ease-in;
+    -ms-transition:margin 0.1s ease-in;
+    -o-transition:margin 0.1s ease-in;
+    transition:margin 0.1s ease-in;
+}
+
+nav#navigation ul li:hover ul li {
+    margin-top:0;
+}
+
+.clearfix:after {
+    content:".";
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
+}
+.clearfix {
+    display:inline-block;
+    min-height:1%;
+}
+ 
+/* * html .clearfix {
+    height:1%;
+}
+.clearfix {
+    display:block;
+} */

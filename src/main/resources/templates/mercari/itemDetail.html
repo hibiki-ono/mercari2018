@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.tyhmeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- BootstrapのCSS読み込み -->
+<link th:href="@{/bootstrap-3.3.7-dist/css/bootstrap.min.css}"
+	rel="stylesheet">
+<!-- 自作CSS読み込み -->
+<link th:href="@{/css/itemDetail.css}" rel="stylesheet">
+<!-- jQuery読み込み -->
+<script
+	th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js}"></script>
+<!-- BootstrapのJS読み込み -->
+<script th:src="@{/bootstrap-3.3.7-dist/js/bootstrap.min.js}"></script>
+<title>商品詳細</title>
+</head>
+<body>
+	<h1>Details</h1>
+	<div class="table-size">
+		<table class="table table-hover table-condensed">
+			<tr>
+				<th class="info">ID</th>
+				<td th:text="${itemDetail.itemId}"></td>
+			</tr>
+			<tr>
+				<th class="info">name</th>
+				<td th:text="${itemDetail.itemName}"></td>
+			</tr>
+			<tr>
+				<th class="info">price</th>
+				<td th:text="${itemDetail.price}"></td>
+			</tr>
+			<tr>
+				<th class="info">category</th>
+				<td th:text="${itemDetail.nameAll}"></td>
+			</tr>
+			<tr>
+				<th class="info">brand</th>
+				<td th:text="${itemDetail.brand}"></td>
+			</tr>
+			<tr>
+				<th class="info">condition</th>
+				<td th:text="${itemDetail.condition}"></td>
+			</tr>
+			<tr>
+				<th class="info">description</th>
+				<td th:text="${itemDetail.description}"></td>
+			</tr>
+		</table>
+	</div>
+
+	<div align="center" 　class="info">
+		<a th:href="@{/itemList/index}">商品一覧に戻る</a>
+	</div>
+</body>
+</html>
